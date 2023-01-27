@@ -7,9 +7,12 @@ mongoose.set('strictQuery', false)
 
 
 //connect to db
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect(process.env.DATABASE_URI, {
     useNewUrlParser: true,
 })
+// mongoose.connect(process.env.MONGODB_URI, {
+//     useNewUrlParser: true,
+// })
 mongoose.connection.on('error', (error) => console.error(error));
 mongoose.connection.once('open', () => console.log('Connected to Database!'))
 //
@@ -18,15 +21,15 @@ app.get('/', (req, res) => {
     res.send('welcom to the super market sales api ');
 })
 //routes
-mongoose.connection.on('connected', () => {
-    console.log('connected')
+// mongoose.connection.on('connected', () => {
+//     console.log('connected')
     const productLineRouter = require('./routes/productLines');
     const customerTypeGenderRouter = require('./routes/customerTypeGender');
     const moyenneRatingPerGenderRouter = require('./routes/ratingPerGender');
     app.use('/product-line', productLineRouter);
     app.use('/customer-type-gender', customerTypeGenderRouter);
     app.use('/moy-rating-per-gender', moyenneRatingPerGenderRouter);
-})
+// })
 
 let port = process.env.PORT || 3000;
 app.listen(port, () => console.log('server starded...'))
