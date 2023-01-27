@@ -7,7 +7,7 @@ mongoose.set('strictQuery', false)
 
 
 //connect to db
-mongoose.connect(process.env.DATABASE_URI, {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
 })
 mongoose.connection.on('error', (error) => console.error(error));
