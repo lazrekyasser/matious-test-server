@@ -19,6 +19,7 @@ app.get('/', (req, res) => {
 })
 //routes
 mongoose.connection.on('connected', () => {
+    console.log('connected')
     const productLineRouter = require('./routes/productLines');
     const customerTypeGenderRouter = require('./routes/customerTypeGender');
     const moyenneRatingPerGenderRouter = require('./routes/ratingPerGender');
