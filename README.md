@@ -5,6 +5,7 @@ first of all, I write a CLI commande with help of a package called "CommanderJs"
 Install my package : 
   # npm i supermarketsales-cli
 After that run the commande to store all CSV data for SuperMarketSales in the MongoDB database:
+  NOTE: that the database is already fill by some data from the file in the subject
   # npx supermarketsalescli file "absolute path to the CSV file"
 You can run this commande to see same help in the argument : # npx supermarketsalescli help file
 
